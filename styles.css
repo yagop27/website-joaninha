@@ -1,0 +1,401 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+nav a:hover {
+    color: #333;
+}
+
+/* Sections */
+section {
+    padding: 6rem 0;
+    margin-top: 60px;
+}
+
+section:first-of-type {
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section Headers */
+h1, h2 {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+h1 {
+    color: white;
+    font-size: 3.5rem;
+}
+
+h2 {
+    color: #333;
+    font-size: 2rem;
+}
+
+/* Image Containers with Text Overlay - Full Width */
+.home-page-container,
+.projects-page-container,
+.about-page-container,
+.contact-page-container {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: 3rem;
+    height: 500px;
+    overflow: hidden;
+}
+
+.home-page-container img,
+.projects-page-container img,
+.about-page-container img,
+.contact-page-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradient Overlay for better text visibility */
+.home-page-container::before,
+.about-page-container::before,
+.contact-page-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+    z-index: 1;
+}
+
+/* Text Overlays */
+.home-page-text,
+.projects-page-text,
+.about-page-text,
+.contact-page-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.home-page-text h1,
+.projects-page-text h2,
+.about-page-text h2,
+.contact-page-text h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.home-page-text p {
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* Standard Images */
+.section-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.section-img-small {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Poem Paragraph */
+.poem {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin: 3rem auto;
+    max-width: 600px;
+    line-height: 2;
+    font-size: 1.1rem;
+}
+
+/* Paragraph Styling - Centered and Justified */
+p {
+    color: #666;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    max-width: 1200px;
+    text-align: justify;
+}
+
+/* Image Slider/Slideshow */
+.slider-container {
+    margin-top: 3rem;
+    position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slider-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-item.active {
+    display: block;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dot.active {
+    background-color: white;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-arrow.prev {
+    left: 20px;
+}
+
+.slider-arrow.next {
+    right: 20px;
+}
+
+/* Contact Section */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    nav .logo img {
+        height: 30px;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .home-page-container,
+    .projects-page-container,
+    .about-page-container,
+    .contact-page-container {
+        height: 350px;
+    }
+
+    .home-page-text h1,
+    .projects-page-text h2,
+    .about-page-text h2,
+    .contact-page-text h2 {
+        font-size: 2rem;
+    }
+
+    .home-page-text p {
+        font-size: 1rem;
+    }
+
+    .slider {
+        height: 350px;
+    }
+
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .slider-arrow.prev {
+        left: 10px;
+    }
+
+    .slider-arrow.next {
+        right: 10px;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Spacing */
+#inicio {
+    padding-top: 100px;
+}
